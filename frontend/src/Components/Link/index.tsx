@@ -9,6 +9,10 @@ const Link = () => {
 
   const onSuccess = React.useCallback(
     (public_token: string) => {
+      console.log('Got token!!!', public_token)
+
+      localStorage.setItem('public_token', public_token);
+
       // send public_token to server
       const setToken = async () => {
         const response = await fetch("/api/set_access_token", {
